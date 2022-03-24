@@ -7,9 +7,9 @@
 </head>
 <body>
 
-	<audio src="one.mp3" loop></audio>
-	<audio src="two.mp3" loop></audio>
-	<audio src="three.mp3" loop></audio>
+	<audio src="one.mp3" loop muted></audio>
+	<audio src="two.mp3" loop muted></audio>
+	<audio src="three.mp3" loop muted></audio>
 	
 	<button value="0">Radio 1</button>
 	<button value="1">Radio 2</button>
@@ -20,16 +20,28 @@
 			const players = document.querySelectorAll('audio');
 			const btns = document.querySelectorAll('button');
 			let unmuted = false;
+			let playing = false;
 			let i = btns.length;
 
-			while(i--){
-				players[i].muted = true;
-				players[i].play();
+			function playAll(){
+				let i = players.length;
+				while(i--){
+					players[i].play();
+				}
+			}
 
+			while(i--){
 				btns[i].addEventListener('click',(e)=>{
+					
 					if(unmuted){
 						unmuted.muted = true;
 					}
+
+					if(!playing){
+						playAll();
+						playing = true;
+					}
+					
 					players[e.target.value].muted = false;
 					unmuted = players[e.target.value];
 				})
