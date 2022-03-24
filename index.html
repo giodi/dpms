@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+</head>
+<body>
+
+	<audio src="one.mp3" loop></audio>
+	<audio src="two.mp3" loop></audio>
+	<audio src="three.mp3" loop></audio>
+	
+	<button value="0">Radio 1</button>
+	<button value="1">Radio 2</button>
+	<button value="2">Radio 3</button>
+	
+	<script type="text/javascript">
+		(()=>{
+			const players = document.querySelectorAll('audio');
+			const btns = document.querySelectorAll('button');
+			let unmuted = false;
+			let i = btns.length;
+
+			while(i--){
+				players[i].muted = true;
+				players[i].play();
+
+				btns[i].addEventListener('click',(e)=>{
+					if(unmuted){
+						unmuted.muted = true;
+					}
+					players[e.target.value].muted = false;
+					unmuted = players[e.target.value];
+				})
+			}
+		})();
+	</script>
+	
+</body>
+</html>
