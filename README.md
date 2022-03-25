@@ -1,2 +1,2 @@
 # DPMS
-Projekt ist im Rahmen des Modules Digitales Publizieren & Multimediasysteme an der FHGR entstanden.
+Projekt ist im Rahmen des Modules «Digitales Publizieren & Multimediasysteme» am Studiengang Information Science an der FHGR entstanden.
