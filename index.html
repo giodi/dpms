@@ -4,6 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Test</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		svg{max-width: 800px;}
+		.btn:focus,
+		.btn:hover{
+			fill: #b3410a;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
 
@@ -11,14 +24,29 @@
 	<audio src="two.mp3" loop muted></audio>
 	<audio src="three.mp3" loop muted></audio>
 	
-	<button value="0">Radio 1</button>
-	<button value="1">Radio 2</button>
-	<button value="2">Radio 3</button>
+
+	<svg enable-background="new 0 0 64 64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+		<path d="m50 27c-.1 0-.2 0-.3 0l-34-9c-.5-.1-.9-.7-.7-1.2.1-.5.7-.9 1.2-.7l34 9c.5.1.9.7.7 1.2-.1.4-.5.7-.9.7z" fill="#231f20" opacity=".2"/>
+		<path d="m50 24-34-9" fill="none" stroke="#e0e0d1" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="m52 47c0 1.1-.9 2-2 2h-36c-1.1 0-2-.9-2-2v-20c0-1.1.9-2 2-2h36c1.1 0 2 .9 2 2z" fill="#231f20" opacity=".2"/>
+		<path d="m52 45c0 1.1-.9 2-2 2h-36c-1.1 0-2-.9-2-2v-20c0-1.1.9-2 2-2h36c1.1 0 2 .9 2 2z" fill="#f5cf87"/>
+		<circle cx="24" cy="35" fill="#4f5d73" r="8"/>
+		<g fill="#231f20">
+			<path d="m24 29c4.1 0 7.4 3.1 7.9 7 0-.3.1-.7.1-1 0-4.4-3.6-8-8-8s-8 3.6-8 8c0 .3 0 .7.1 1 .5-3.9 3.8-7 7.9-7z" opacity=".2"/>
+			<circle cx="36.5" cy="42.5" opacity=".2" r="1.5"/>
+			<circle cx="41.5" cy="42.5" opacity=".2" r="1.5"/>
+			<circle cx="46.5" cy="42.5" opacity=".2" r="1.5"/>
+		</g>
+		<circle class="btn" data-value="0" cx="36.5" cy="41.5" fill="#4f5d73" r="1.5"/>
+		<circle class="btn" data-value="1" cx="41.5" cy="41.5" fill="#4f5d73" r="1.5"/>
+		<circle class="btn" data-value="2" cx="46.5" cy="41.5" fill="#4f5d73" r="1.5"/>
+		<path d="m48 35c0 1.1-.9 2-2 2h-9c-1.1 0-2-.9-2-2v-5c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2z" fill="#fff"/>
+		<path d="m46 28h-9c-1.1 0-2 .9-2 2v2c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2v-2c0-1.1-.9-2-2-2z" fill="#231f20" opacity=".2"/>
+	</svg>
 	
 	<script type="text/javascript">
 		(()=>{
 			const players = document.querySelectorAll('audio');
-			const btns = document.querySelectorAll('button');
+			const btns = document.querySelectorAll('.btn');
 			let unmuted = false;
 			let playing = false;
 			let i = btns.length;
@@ -32,6 +60,8 @@
 
 			while(i--){
 				btns[i].addEventListener('click',(e)=>{
+
+					let channel = e.target.getAttribute('data-value');
 					
 					if(unmuted){
 						unmuted.muted = true;
@@ -42,8 +72,8 @@
 						playing = true;
 					}
 					
-					players[e.target.value].muted = false;
-					unmuted = players[e.target.value];
+					players[channel].muted = false;
+					unmuted = players[channel];
 				})
 			}
 		})();
