@@ -3,54 +3,78 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Test</title>
+	<title>DPMS Projekt</title>
+	<meta name="description" value="Projekt welches im Rahmen des Moduls DPMS an der FH Graubünden entstanden ist.">
 	<style>
 		body{
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			cursor: url(hand1.svg) 23 0, default;
+			width: 100vw;
+			height: 100vh;
+			padding: 0;
+			margin: 0;
 		}
 		svg{max-width: 800px;}
-		.btn:focus,
-		.btn:hover{
+		#buttons circle:focus,
+		#buttons circle:hover{
 			fill: #b3410a;
 			cursor: url(hand2.svg) 23 0, pointer;
+		}
+
+		#display.active #sender{
+			fill: #fff !important;
 		}
 	</style>
 </head>
 <body>
 
-	<audio src="one.mp3" loop muted></audio>
-	<audio src="two.mp3" loop muted></audio>
-	<audio src="three.mp3" loop muted></audio>
+	<audio src="one.mp3" muted></audio>
+	<audio src="two.mp3" muted></audio>
+	<audio src="three.mp3" muted></audio>
+	<audio src="three.mp3" muted></audio>
 	
 
-	<svg enable-background="new 0 0 64 64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-		<path d="m50 27c-.1 0-.2 0-.3 0l-34-9c-.5-.1-.9-.7-.7-1.2.1-.5.7-.9 1.2-.7l34 9c.5.1.9.7.7 1.2-.1.4-.5.7-.9.7z" fill="#231f20" opacity=".2"/>
-		<path d="m50 24-34-9" fill="none" stroke="#e0e0d1" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="m52 47c0 1.1-.9 2-2 2h-36c-1.1 0-2-.9-2-2v-20c0-1.1.9-2 2-2h36c1.1 0 2 .9 2 2z" fill="#231f20" opacity=".2"/>
-		<path d="m52 45c0 1.1-.9 2-2 2h-36c-1.1 0-2-.9-2-2v-20c0-1.1.9-2 2-2h36c1.1 0 2 .9 2 2z" fill="#f5cf87"/>
-		<circle cx="24" cy="35" fill="#4f5d73" r="8"/>
-		<g fill="#231f20">
-			<path d="m24 29c4.1 0 7.4 3.1 7.9 7 0-.3.1-.7.1-1 0-4.4-3.6-8-8-8s-8 3.6-8 8c0 .3 0 .7.1 1 .5-3.9 3.8-7 7.9-7z" opacity=".2"/>
-			<circle cx="36.5" cy="42.5" opacity=".2" r="1.5"/>
-			<circle cx="41.5" cy="42.5" opacity=".2" r="1.5"/>
-			<circle cx="46.5" cy="42.5" opacity=".2" r="1.5"/>
+	<svg width="100%" height="100%" viewBox="0 0 1024 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+		<path id="body" d="M810.965,324.535c0,-10.598 -8.604,-19.202 -19.201,-19.202l-507.93,0c-10.598,0 -19.202,8.604 -19.202,19.202l-0,314.93c-0,10.598 8.604,19.202 19.202,19.202l507.93,-0c10.597,-0 19.201,-8.604 19.201,-19.202l0,-314.93Z" style="fill:#c94242;"/>
+
+		<g id="buttons">
+			<circle data-value="0" cx="550.775" cy="550.137" r="17.863"/>
+			<circle data-value="1" cx="614.334" cy="550.137" r="17.863"/>
+			<circle data-value="2" cx="677.894" cy="550.137" r="17.863"/>
+			<circle data-value="3" cx="741.453" cy="550.137" r="17.863"/>
 		</g>
-		<circle class="btn" data-value="0" cx="36.5" cy="41.5" fill="#4f5d73" r="1.5"/>
-		<circle class="btn" data-value="1" cx="41.5" cy="41.5" fill="#4f5d73" r="1.5"/>
-		<circle class="btn" data-value="2" cx="46.5" cy="41.5" fill="#4f5d73" r="1.5"/>
-		<path d="m48 35c0 1.1-.9 2-2 2h-9c-1.1 0-2-.9-2-2v-5c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2z" fill="#fff"/>
-		<path d="m46 28h-9c-1.1 0-2 .9-2 2v2c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2v-2c0-1.1-.9-2-2-2z" fill="#231f20" opacity=".2"/>
-	</svg>
+		<g id="display">
+			<path d="M759.317,364.451c-0,-1.612 -1.309,-2.921 -2.921,-2.921l-220.563,-0c-1.612,-0 -2.921,1.309 -2.921,2.921l-0,140.211c-0,1.612 1.309,2.921 2.921,2.921l220.563,0c1.612,0 2.921,-1.309 2.921,-2.921l-0,-140.211Z"/>
+			<text id="clock" x="563.833px" y="430px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:64px;fill:#fff;">15:45</text>
+			<text id="sender" x="548.966px" y="477.743px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:30px;fill:#000;">Sender</text>
+		</g>
+
+		<circle id="lautsprecher" cx="392.378" cy="455.902" r="94.372" style="fill:#3f3f3f;"/></svg>
 	
 	<script type="text/javascript">
 		(()=>{
-			const players = document.querySelectorAll('audio');
-			const btns = document.querySelectorAll('.btn');
-			let unmuted = false;
-			let playing = false;
-			let i = btns.length;
+
+			function setTime(){
+				let timeNow = Date.now();
+				let time = new Date(timeNow);
+				let hours = time.getHours();
+				let minutes = time.getMinutes();
+
+
+				if(hours < 10){
+					hours.toString()
+					hours = '0'+hours;
+				}
+				if(minutes < 10){
+					minutes.toString();
+					minutes = '0'+minutes;
+				}
+
+				clock.textContent = hours+':'+minutes;
+				
+			}
 
 			function playAll(){
 				let i = players.length;
@@ -59,10 +83,31 @@
 				}
 			}
 
+			channelInfo = [
+				{"name": "SRF"},
+				{"name": "Energy"},
+				{"name": "DRS"},
+				{"name": "RaBe"}
+			]
+
+			const clock = document.getElementById('clock');
+			const display = document.getElementById('display');
+			const sender = document.getElementById('sender');
+			const players = document.querySelectorAll('audio');
+			const btns = document.querySelectorAll('#buttons circle');
+			let unmuted = false;
+			let playing = false;
+			let i = btns.length;
+			
+			// Init Stuff
+			setTime();
+			let timeInterval = setInterval(setTime, 1000);
+
 			while(i--){
 				btns[i].addEventListener('click',(e)=>{
 
 					let channel = e.target.getAttribute('data-value');
+
 					
 					if(unmuted){
 						unmuted.muted = true;
@@ -71,10 +116,14 @@
 					if(!playing){
 						playAll();
 						playing = true;
+						display.classList.add('active');
 					}
 					
 					players[channel].muted = false;
 					unmuted = players[channel];
+
+					sender.textContent = channelInfo[channel].name;
+
 				})
 			}
 		})();
