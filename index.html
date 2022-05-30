@@ -6,6 +6,16 @@
 	<title>DPMS Projekt</title>
 	<meta name="description" value="Projekt welches im Rahmen des Moduls DPMS an der FH Graubünden entstanden ist.">
 	<style>
+		/*Font by Peter Hull. License: https://www.fontsquirrel.com/license/vt323 */
+		@font-face {
+		    font-family: 'vt323regular';
+		    src: url('fonts/vt323-regular-webfont.woff2') format('woff2'),
+		         url('fonts/vt323-regular-webfont.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		    font-display: swap;
+		}
+
 		body{
 			background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
 			display: flex;
@@ -21,11 +31,11 @@
 			max-width: 600px;
 		}
 
-		.buttons g:focus,
-		.buttons g:hover{
-			fill: #b3410a;
-			cursor: url(hand2.svg) 23 0, pointer;
+		#channel,
+		#time{
+			font-family: vt323regular;
 		}
+
 		.button circle{
 			transition: transform .2s;
 		}
@@ -33,7 +43,10 @@
 			transition: opacity .2s;
 		}
 		.button:hover circle{
-			transform: translate3d(10px, 0px, 0px);
+			transform: translate3d(5px, 0px, 0px);
+		}
+		.button circle:active{
+			fill: #797979 !important;
 		}
 		.button:hover path{
 			opacity: 0;
@@ -46,44 +59,36 @@
 </head>
 <body>
 
+	<audio src="click.webm" id="click"></audio>
+
+	<div id="radio-audio">
 	<audio src="one.webm" muted></audio>
 	<audio src="two.webm" muted></audio>
 	<audio src="three.webm" muted></audio>
-	<audio src="one.webm" muted></audio>
-	
+	<audio src="four.webm" muted></audio>
+	</div>
 
-	<svg width="100%" height="100%" viewBox="0 0 2167 1991" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-		<path id="antenne" d="M1721.79,33.07c10.022,-7.087 13.948,-11.09 7.309,-20.478l-4.535,-6.414c-6.639,-9.388 -11.722,-7.02 -21.743,0.066l-1031.6,719.294c-10.021,7.086 -12.767,20.462 -6.128,29.85l4.535,6.413c6.639,9.388 20.164,11.256 30.186,4.17l1021.98,-732.901Z" style="fill:url(#_Linear1);"/>
-		<g id="chassis">
-			<path id="body2" d="M2166.98,853.201l0,983.309c-0.722,24.854 -12.582,46.937 -30.763,61.428l-80.354,70.889l0,-1247.94l80.354,70.888c18.18,14.49 30.041,36.574 30.763,61.428Z" style="fill:url(#_Linear2);"/>
-			<path id="body1" d="M2085.42,784.445c-0,-45.993 -37.341,-83.333 -83.334,-83.333l-1916.67,-0c-45.993,-0 -83.334,37.34 -83.334,83.333l0,1120.83c0,45.993 37.341,83.334 83.334,83.334l1916.67,-0c45.993,-0 83.334,-37.341 83.334,-83.334l-0,-1120.83Z" style="fill:url(#_Radial3);stroke:#eb8f87;stroke-width:4.17px;"/>
-			<path id="screen" filter="url(#innershadow)" d="M1257.64,812.325c-0,-22.996 -18.67,-41.667 -41.667,-41.667l-1097.22,0c-22.996,0 -41.667,18.671 -41.667,41.667l0,288.889c0,22.996 18.671,41.667 41.667,41.667l1097.22,-0c22.997,-0 41.667,-18.671 41.667,-41.667l-0,-288.889Z"/><clipPath id="_clip4"><path d="M1257.64,812.325c-0,-22.996 -18.67,-41.667 -41.667,-41.667l-1097.22,0c-22.996,0 -41.667,18.671 -41.667,41.667l0,288.889c0,22.996 18.671,41.667 41.667,41.667l1097.22,-0c22.997,-0 41.667,-18.671 41.667,-41.667l-0,-288.889Z"/></clipPath>
-			<g id="display" clip-path="url(#_clip4)">
-				<text id="channel" x="137.859px" y="1096.71px" style="font-family:'PressStart2P-Regular', 'Press Start 2P';font-size:83.333px;fill:#edeeee;">Sender</text><text id="time" x="362.674px" y="972.394px" style="font-family:'PressStart2P-Regular', 'Press Start 2P';font-size:125px;fill:#edeeee;">00:00</text></g><path d="M1257.64,812.325c-0,-22.996 -18.67,-41.667 -41.667,-41.667l-1097.22,0c-22.996,0 -41.667,18.671 -41.667,41.667l0,288.889c0,22.996 18.671,41.667 41.667,41.667l1097.22,-0c22.997,-0 41.667,-18.671 41.667,-41.667l-0,-288.889Z" style="fill:none;stroke:#000;stroke-width:20.83px;"/></g>
-		<g class="button" id="button"><path d="M166.01,1243.2c39.552,0 71.663,32.111 71.663,71.663c-0,39.551 -32.111,71.662 -71.663,71.662l-17.264,0l-0,-143.325c7.743,0 0.363,0 17.264,0Z" style="fill:#656565;"/><circle cx="148.746" cy="1314.87" r="71.663" data-value="0" style="fill:#bababa;"/></g>
-		<g class="button" id="button1" serif:id="button"><path d="M451.601,1243.2c39.551,0 71.662,32.111 71.662,71.663c0,39.551 -32.111,71.662 -71.662,71.662l-17.265,0l0,-143.325c7.743,0 0.364,0 17.265,0Z" style="fill:#656565;"/><circle data-value="1" cx="434.336" cy="1314.87" r="71.663" style="fill:#bababa;"/></g>
-		<g id="button2" class="button" serif:id="button"><path d="M756.288,1243.2c39.552,0 71.663,32.111 71.663,71.663c-0,39.551 -32.111,71.662 -71.663,71.662l-17.264,0l-0,-143.325c7.743,0 0.363,0 17.264,0Z" style="fill:#656565;"/><circle data-value="2"  cx="739.024" cy="1314.87" r="71.663" style="fill:#bababa;"/></g><g id="button3" class="button" serif:id="button"><path d="M1060.98,1243.2c39.551,0 71.662,32.111 71.662,71.663c0,39.551 -32.111,71.662 -71.662,71.662l-17.265,0l0,-143.325c7.743,0 0.364,0 17.265,0Z" style="fill:#656565;"/><circle data-value="3" cx="1043.71" cy="1314.87" r="71.663" style="fill:#bababa;"/></g><defs><linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(14.2962,20.2166,-531.551,375.889,1198.91,382.706)"><stop offset="0" style="stop-color:#b8b8b8;stop-opacity:1"/><stop offset="1" style="stop-color:#d3d3d3;stop-opacity:1"/></linearGradient><linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(111.117,0,0,1247.94,2055.86,1344.86)"><stop offset="0" style="stop-color:#bf2e21;stop-opacity:1"/><stop offset="0.48" style="stop-color:#b53124;stop-opacity:1"/><stop offset="1" style="stop-color:#9a392b;stop-opacity:1"/></linearGradient><radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1041.67,0,0,643.75,1043.75,1344.86)"><stop offset="0" style="stop-color:#c13a2a;stop-opacity:1"/><stop offset="1" style="stop-color:#a82118;stop-opacity:1"/></radialGradient><filter id="innershadow" x0="-50%" y0="-50%" width="200%" height="200%">
-			<feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"></feGaussianBlur>
-			<feOffset dy="2" dx="3"></feOffset>
-			<feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
-			
-           <feFlood flood-color="#fff" flood-opacity="0.75"></feFlood>
-		   <feComposite in2="shadowDiff" operator="in"></feComposite>
-		   <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
-          
-          
-          <feGaussianBlur in="firstfilter" stdDeviation="3" result="blur2"></feGaussianBlur>
-			<feOffset dy="-2" dx="-3"></feOffset>
-			<feComposite in2="firstfilter" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
-			
-           <feFlood flood-color="#fff" flood-opacity="0.75"></feFlood>
-			<feComposite in2="shadowDiff" operator="in"></feComposite>
-			<feComposite in2="firstfilter" operator="over"></feComposite>
-		</filter>
-       </defs></svg>
+	<svg width="100%" height="100%" viewBox="0 0 521 478" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><path id="antenne" d="M413.23,7.937c2.405,-1.701 3.347,-2.662 1.754,-4.915l-1.089,-1.539c-1.593,-2.253 -2.813,-1.685 -5.218,0.016l-247.584,172.63c-2.405,1.701 -3.064,4.911 -1.471,7.164l1.089,1.539c1.593,2.253 4.839,2.702 7.245,1.001l245.274,-175.896Z" style="fill:url(#_Linear1);"/><g id="chassis"><path id="body2" d="M520.075,204.768l-0,235.994c-0.174,5.965 -3.02,11.265 -7.383,14.743l-19.285,17.013l-0,-299.506l19.285,17.014c4.363,3.477 7.21,8.777 7.383,14.742Z" style="fill:url(#_Linear2);"/><path id="body1" d="M500.5,188.267c0,-11.039 -8.962,-20 -20,-20l-460,-0c-11.038,-0 -20,8.961 -20,20l0,269c0,11.038 8.962,20 20,20l460,-0c11.038,-0 20,-8.962 20,-20l0,-269Z" style="fill:url(#_Radial3);stroke:#eb8f87;stroke-width:1px;"/><path id="screen" d="M301.833,194.958c0,-5.519 -4.481,-10 -10,-10l-263.333,-0c-5.519,-0 -10,4.481 -10,10l-0,69.333c-0,5.519 4.481,10 10,10l263.333,0c5.519,0 10,-4.481 10,-10l0,-69.333Z"/><clipPath id="_clip4"><path d="M301.833,194.958c0,-5.519 -4.481,-10 -10,-10l-263.333,-0c-5.519,-0 -10,4.481 -10,10l-0,69.333c-0,5.519 4.481,10 10,10l263.333,0c5.519,0 10,-4.481 10,-10l0,-69.333Z"/></clipPath><g clip-path="url(#_clip4)"><text id="channel" x="33.086px" y="263.211px" style="font-family:'VT323-Regular', 'VT323', monospace;font-size:36px;fill:#edeeee;">Sender</text><text id="time" x="88.167px" y="233.625px" style="font-family:'VT323-Regular', 'VT323', monospace;font-size:72px;fill:#edeeee;">00:00</text></g></g><g id="button" class="button"><path d="M37.11,298.369c9.493,-0 17.199,7.706 17.199,17.199c0,9.492 -7.706,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="0" cx="32.967" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button1" class="button"><path d="M120.438,298.369c9.493,-0 17.199,7.706 17.199,17.199c0,9.492 -7.706,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="1" cx="116.295" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button2" class="button"><path d="M201.034,298.369c9.492,-0 17.199,7.706 17.199,17.199c0,9.492 -7.707,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="2" cx="196.891" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button3" class="button"><path d="M281.63,298.369c9.492,-0 17.199,7.706 17.199,17.199c-0,9.492 -7.707,17.199 -17.199,17.199l-4.144,-0l0,-34.398l4.144,-0Z" style="fill:#656565;"/><circle data-value="3" cx="277.486" cy="315.568" r="17.199" style="fill:#bababa;"/></g><defs><linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3.4311,4.85198,-127.572,90.2133,287.739,91.8493)"><stop offset="0" style="stop-color:#b8b8b8;stop-opacity:1"/><stop offset="1" style="stop-color:#d3d3d3;stop-opacity:1"/></linearGradient><linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(26.6681,0,0,299.506,493.407,322.765)"><stop offset="0" style="stop-color:#bf2e21;stop-opacity:1"/><stop offset="0.48" style="stop-color:#b53124;stop-opacity:1"/><stop offset="1" style="stop-color:#9a392b;stop-opacity:1"/></linearGradient><radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(250,0,0,154.5,250.5,322.767)"><stop offset="0" style="stop-color:#c13a2a;stop-opacity:1"/><stop offset="1" style="stop-color:#a82118;stop-opacity:1"/></radialGradient></defs></svg>
 	
 	<script type="text/javascript">
 		(()=>{
+
+			const clock = document.getElementById('time');
+			const display = document.getElementById('screen');
+			const sender = document.getElementById('channel');
+			const playersRadio= document.querySelectorAll('#radio-audio audio');
+			const btns = document.querySelectorAll('.button');
+			const click = document.getElementById('click');
+			let unmuted = false;
+			let playing = false;
+			let i = btns.length;
+
+			const channelInfo = [
+				{"name": "SRF"},
+				{"name": "Energy"},
+				{"name": "DRS"},
+				{"name": "RaBe"}
+			]
 
 			function setTime(){
 				let timeNow = Date.now();
@@ -105,28 +110,19 @@
 				
 			}
 
+			function playClick(){
+				click.currentTime = 0;
+				click.muted = false;
+				click.play();
+			}
+
 			function playAll(){
-				let i = players.length;
+				let i = playersRadio.length;
 				while(i--){
-					players[i].play();
+					playersRadio[i].play();
 				}
 			}
 
-			channelInfo = [
-				{"name": "SRF"},
-				{"name": "Energy"},
-				{"name": "DRS"},
-				{"name": "RaBe"}
-			]
-
-			const clock = document.getElementById('time');
-			const display = document.getElementById('display');
-			const sender = document.getElementById('channel');
-			const players = document.querySelectorAll('audio');
-			const btns = document.querySelectorAll('.button');
-			let unmuted = false;
-			let playing = false;
-			let i = btns.length;
 			
 			// Init Stuff
 			setTime();
@@ -134,6 +130,8 @@
 
 			while(i--){
 				btns[i].addEventListener('click',(e)=>{
+
+					playClick();
 
 					let channel = e.target.getAttribute('data-value');
 					
@@ -147,8 +145,8 @@
 						display.classList.add('active');
 					}
 					
-					players[channel].muted = false;
-					unmuted = players[channel];
+					playersRadio[channel].muted = false;
+					unmuted = playersRadio[channel];
 
 					sender.textContent = channelInfo[channel].name;
 
