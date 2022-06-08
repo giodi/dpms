@@ -1,0 +1,12 @@
+dialog {
+  position: relative;
+  width: 70vh;
+  height: 50vh;
+}
+
+.buttons {
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

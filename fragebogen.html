@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script type="module" src="data.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+<body>
+
+<!---------------FRAGEBOGEN----------------->  
+  <dialog id="fragebogen" open>
+
+    <h2 id="titel">Objektivität</h2>
+    <p id="intro">Die Inhalte möglichst unverfälscht, ohne Manipulationsversuch...</p>
+    <p id="frage">Wie schätzt du die Objektivität der Sender ein?</p>
+  
+    <div id="obj" class="slider">
+      <label class="form-label">SENDER 1</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="obj1">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 2</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="obj2">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 3</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="obj3">
+    </div> 
+
+    <div id="sym" class="slider" style="display:none">
+      <label for="customRange3" class="form-label">SENDER 1</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="sym1">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 2</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="sym2">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 3</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="sym3">
+    </div>
+
+    <div id="tru" class="slider" style="display:none">
+      <label for="customRange3" class="form-label">SENDER 1</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="tru1">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 2</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="tru2">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 3</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="tru3">
+    </div>
+
+    <div id="inf" class="slider" style="display:none">
+      <label for="customRange3" class="form-label">SENDER 1</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="inf1">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 2</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="inf2">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 3</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="inf3">
+    </div>
+
+    <div id="fun" class="slider" style="display:none">
+      <label for="customRange3" class="form-label">SENDER 1</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="fun1">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 2</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="fun2">
+      <br>
+      <label for="customRange3" class="form-label">SENDER 3</label>
+      <input type="range" class="form-range" min="0" max="4" step="1" id="fun3">
+    </div>
+      
+    <div class="buttons">
+      <button class="submit" id="zuruck">Zurück</button>
+      <button class="submit" id="weiter">Weiter</button>
+      <button class="submit" id="absenden" style="display: none;">Absenden</button>
+    </div>    
+  </dialog>
+
+  <div id="auswertung" style="display: inline;">
+    <dialog id="auswertung" open>
+      <div id="auswertung_inhalt">
+        <div id="fragebogen_auswertung">
+          <h2>Zahlen</h2>
+
+          <script>
+
+          </script>
+
+
+        </div>
+        <div id="hordauer">
+          <h2>Hördauer</h2>
+          <table>
+            <tr>
+              <th>Sender</th>
+              <th>Du</th>
+              <th>Deine Klasse</th>
+              <th>Alle (n=1289)</th>
+            </tr>
+            <tr>
+              <td>Sender 1</td>
+              <td>33%</td>
+              <td>20%</td>
+              <td>30%</td>
+            </tr>
+            <tr>
+              <td>Sender 2</td>
+              <td>20%</td>
+              <td>70%</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>Sender 3</td>
+              <td>47%</td>
+              <td>20%</td>
+              <td>37%</td>
+            </tr>
+            <tr>
+              <td>Musik ?</td>
+              <td>xx%</td>
+              <td>xx%</td>
+              <td>xx%</td>
+            </tr>
+
+
+
+        </div>
+
+      </div>
+    </dialog>
+  </div>
+
+</body>
+
+<script type="module" src='fragebogen.js'></script>
+<script type="module" src='auswertung.js'></script>
+
