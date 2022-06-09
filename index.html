@@ -33,7 +33,6 @@
 		body{
 			/*Icon by:  ;https://github.com/mozilla/fxemoji*/
 			background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
-			cursor: url(hand1.svg) 18 0, default;
 			width: 100vw;
 			height: 100vh;
 			padding: 0;
@@ -72,6 +71,7 @@
 			padding: 1.5em;
 			box-sizing: border-box;
 			position: relative;
+			cursor: url(hand1.svg) 18 0, default;
 		}
 
 		.radio-wrapper svg{
@@ -94,6 +94,88 @@
 			bottom:  0;
 			z-index: 10;
 			border-top: 2px solid #fff;
+		}
+
+		#auswertung_inhalt,
+		#fragebogen{
+			position: fixed;
+			overflow-y: scroll;
+			top:  0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			background: #fff;
+			z-index: 99;
+			font-family: sans-serif;
+			transition: transform .5s;
+			transform: translate3d(0, 100%, 0);
+		}
+
+		#auswertung_inhalt.active,
+		#fragebogen.active{
+			transform: translate3d(0, 0, 0);
+		}
+
+		.question{
+			max-width: 38.75em;
+			margin: 2em auto;
+			border-radius: 1em;
+			padding: 1em 2em 2em;
+		}
+		
+		.q{
+			display: none;
+		}
+
+		.q.active{
+			display: block;
+		}
+
+		label{
+			display: block;
+			margin-top: 1em;
+		}
+
+		label span{
+			display: block;
+			font-weight: 600;
+
+		}
+
+		input[type="range"]{
+			width: 100%;
+		}
+
+		fieldset{
+			border: 0;
+		}
+
+		.skala{
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.skala span{
+			font-weight: 400 !important;
+		}
+
+		.buttons{
+			float: right;
+			margin-top: 1em;
+		}
+
+		.buttons button{
+			padding: .5em 1em;
+			background: #ab241a;
+			color: #fff;
+			border-radius: .3em;
+			border: #ab241a solid 1px;
+		}
+
+		.buttons button:hover,
+		.buttons button:focus{
+			background: #fff;
+			color: #000;
 		}
 
 		@media(max-width: 550px){
@@ -126,6 +208,324 @@
 	<div class="radio-wrapper">
 	<svg width="100%" height="auto" viewBox="0 0 521 478" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;"><path id="antenne" d="M413.23,7.937c2.405,-1.701 3.347,-2.662 1.754,-4.915l-1.089,-1.539c-1.593,-2.253 -2.813,-1.685 -5.218,0.016l-247.584,172.63c-2.405,1.701 -3.064,4.911 -1.471,7.164l1.089,1.539c1.593,2.253 4.839,2.702 7.245,1.001l245.274,-175.896Z" style="fill:url(#_Linear1);"/><g id="chassis"><path id="body2" d="M520.075,204.768l-0,235.994c-0.174,5.965 -3.02,11.265 -7.383,14.743l-19.285,17.013l-0,-299.506l19.285,17.014c4.363,3.477 7.21,8.777 7.383,14.742Z" style="fill:url(#_Linear2);"/><path id="body1" d="M500.5,188.267c0,-11.039 -8.962,-20 -20,-20l-460,-0c-11.038,-0 -20,8.961 -20,20l0,269c0,11.038 8.962,20 20,20l460,-0c11.038,-0 20,-8.962 20,-20l0,-269Z" style="fill:url(#_Radial3);stroke:#eb8f87;stroke-width:1px;"/><path id="screen" d="M301.833,194.958c0,-5.519 -4.481,-10 -10,-10l-263.333,-0c-5.519,-0 -10,4.481 -10,10l-0,69.333c-0,5.519 4.481,10 10,10l263.333,0c5.519,0 10,-4.481 10,-10l0,-69.333Z"/><clipPath id="_clip4"><path d="M301.833,194.958c0,-5.519 -4.481,-10 -10,-10l-263.333,-0c-5.519,-0 -10,4.481 -10,10l-0,69.333c-0,5.519 4.481,10 10,10l263.333,0c5.519,0 10,-4.481 10,-10l0,-69.333Z"/></clipPath><g clip-path="url(#_clip4)"><text id="channel" x="33.086px" y="263.211px" style="font-family:'VT323-Regular', 'VT323', monospace;font-size:36px;fill:#edeeee;"></text><text id="time" x="88.167px" y="233.625px" style="font-family:'VT323-Regular', 'VT323', monospace;font-size:72px;fill:#edeeee;">00:00</text></g></g><g id="button" class="button"><path d="M37.11,298.369c9.493,-0 17.199,7.706 17.199,17.199c0,9.492 -7.706,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="0" cx="32.967" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button1" class="button"><path d="M120.438,298.369c9.493,-0 17.199,7.706 17.199,17.199c0,9.492 -7.706,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="1" cx="116.295" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button2" class="button"><path d="M201.034,298.369c9.492,-0 17.199,7.706 17.199,17.199c0,9.492 -7.707,17.199 -17.199,17.199l-4.143,-0l-0,-34.398l4.143,-0Z" style="fill:#656565;"/><circle data-value="2" cx="196.891" cy="315.568" r="17.199" style="fill:#bababa;"/></g><g id="button3" class="button"><path d="M281.63,298.369c9.492,-0 17.199,7.706 17.199,17.199c-0,9.492 -7.707,17.199 -17.199,17.199l-4.144,-0l0,-34.398l4.144,-0Z" style="fill:#656565;"/><circle data-value="3" cx="277.486" cy="315.568" r="17.199" style="fill:#bababa;"/></g><defs><linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3.4311,4.85198,-127.572,90.2133,287.739,91.8493)"><stop offset="0" style="stop-color:#b8b8b8;stop-opacity:1"/><stop offset="1" style="stop-color:#d3d3d3;stop-opacity:1"/></linearGradient><linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(26.6681,0,0,299.506,493.407,322.765)"><stop offset="0" style="stop-color:#bf2e21;stop-opacity:1"/><stop offset="0.48" style="stop-color:#b53124;stop-opacity:1"/><stop offset="1" style="stop-color:#9a392b;stop-opacity:1"/></linearGradient><radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(250,0,0,154.5,250.5,322.767)"><stop offset="0" style="stop-color:#c13a2a;stop-opacity:1"/><stop offset="1" style="stop-color:#a82118;stop-opacity:1"/></radialGradient></defs></svg>
 	</div>
+
+	<div id="fragebogen">
+		<fieldset class="question">
+			<div class="q active">
+				<h2 class="titel">
+					Objektivität
+				</h2>
+			    <p class="intro">
+			    	Die Inhalte möglichst unverfälscht, ohne Manipulationsversuch...
+			    </p>
+			    <p class="frage">
+			    	Wie schätzt du die Objektivität der Sender ein?
+			    </p>
+			  
+			      <label>
+			      	<span>
+			      		Sender 1
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht objektiv</span>
+			      		<span>Sehr Objektiv</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 2
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht objektiv</span>
+			      		<span>Sehr Objektiv</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 3
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht objektiv</span>
+			      		<span>Sehr Objektiv</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 4
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht objektiv</span>
+			      		<span>Sehr Objektiv</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+		      </div>
+
+		      <div class="q">
+				<h2 class="titel">
+					Sympathie
+				</h2>
+			    <p class="intro">
+			    	Menschen entscheiden, oft unterbewusst, ob sie jemanden sympathisch finden oder eben nicht.
+			    </p>
+			    <p class="frage">
+			    	Wie sympathisch fandest du die Sender?
+			    </p>
+			  
+			      <label>
+			      	<span>
+			      		Sender 1
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht sympathisch</span>
+			      		<span>Sehr Sympathisch</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 2
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht sympathisch</span>
+			      		<span>Sehr Sympathisch</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 3
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht sympathisch</span>
+			      		<span>Sehr Sympathisch</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 4
+			      	</span>
+			      	<span class="skala">
+			      		<span>Gar nicht sympathisch</span>
+			      		<span>Sehr Sympathisch</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+		      </div>
+
+		      <div class="q">
+				<h2 class="titel">
+					Vertrauen
+				</h2>
+			    <p class="intro">
+			    	Wir konsumieren täglich Medien aus verschiendsten Quellen.
+			    </p>
+			    <p class="frage">
+			    	Würdest du in dieser Welt leben, wieviel Vertrauen würdest den Sendern schenken?
+			    </p>
+			  
+			      <label>
+			      	<span>
+			      		Sender 1
+			      	</span>
+			      	<span class="skala">
+			      		<span>Sehr Vertrauenswürdig</span>
+			      		<span>Gar nicht Vertrauenswürdig</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 2
+			      	</span>
+			      	<span class="skala">
+			      		<span>Sehr Vertrauenswürdig</span>
+			      		<span>Gar nicht Vertrauenswürdig</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 3
+			      	</span>
+			      	<span class="skala">
+			      		<span>Sehr Vertrauenswürdig</span>
+			      		<span>Gar nicht Vertrauenswürdig</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 4
+			      	</span>
+			      	<span class="skala">
+			      		<span>Sehr Vertrauenswürdig</span>
+			      		<span>Gar nicht Vertrauenswürdig</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+		      </div>
+
+
+		      <div class="q">
+				<h2 class="titel">
+					Informationsgehalt
+				</h2>
+			    <p class="intro">
+			    	
+			    </p>
+			    <p class="frage">
+			    	Wie hoch schätzt du den Informationsgehalt ein?
+			    </p>
+			  
+			      <label>
+			      	<span>
+			      		Sender 1
+			      	</span>
+			      	<span class="skala">
+			      		<span>niedriger Informationsgehalt</span>
+			      		<span>hoher Informationsgehalt</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 2
+			      	</span>
+			      	<span class="skala">
+			      		<span>niedriger Informationsgehalt</span>
+			      		<span>hoher Informationsgehalt</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 3
+			      	</span>
+			      	<span class="skala">
+			      		<span>niedriger Informationsgehalt</span>
+			      		<span>hoher Informationsgehalt</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 4
+			      	</span>
+			      	<span class="skala">
+			      		<span>niedriger Informationsgehalt</span>
+			      		<span>hoher Informationsgehalt</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+		      </div>
+
+		      <div class="q">
+				<h2 class="titel">
+					Unterhaltungswert
+				</h2>
+			    <p class="intro">
+			    	Was gute Unterhaltung ist, ist jedem selbst überlassen. Unter dem Motto "Everyone is a critic" kannst du an dieser Stelle dein persönliches Urteil fällen
+			    </p>
+			    <p class="frage">
+			    	Wie unterhalsenswert fandest du die verschiedenen Sender?
+			    </p>
+			  
+			      <label>
+			      	<span>
+			      		Sender 1
+			      	</span>
+			      	<span class="skala">
+			      		<span>gar nicht unterhaltungswert</span>
+			      		<span>sehr unterhaltungswert</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 2
+			      	</span>
+			      	<span class="skala">
+			      		<span>gar nicht unterhaltungswert</span>
+			      		<span>sehr unterhaltungswert</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 3
+			      	</span>
+			      	<span class="skala">
+			      		<span>gar nicht unterhaltungswert</span>
+			      		<span>sehr unterhaltungswert</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+			      <label>
+			      	<span>
+			      		Sender 4
+			      	</span>
+			      	<span class="skala">
+			      		<span>gar nicht unterhaltungswert</span>
+			      		<span>sehr unterhaltungswert</span>
+			      	</span>
+			      	<input type="range" min="0" max="4" step="1">
+			      </label>
+		      </div>
+
+		      <div id="buttons" class="buttons">
+			    <button id="prev" hidden>Zurück</button>
+			    <button id="next">Weiter</button>
+			    <button id="submit" hidden>Absenden</button>
+			  </div>
+
+		    </fieldset>
+	</div>
+
+	
+      <div id="auswertung_inhalt">
+        <h2>Zahlen</h2>
+        <div id="hordauer">
+          <h2>Hördauer</h2>
+          <table>
+            <tbody><tr>
+              <th>Sender</th>
+              <th>Du</th>
+              <th>Deine Klasse</th>
+              <th>Alle (n=1289)</th>
+            </tr>
+            <tr>
+              <td>Sender 1</td>
+              <td>33%</td>
+              <td>20%</td>
+              <td>30%</td>
+            </tr>
+            <tr>
+              <td>Sender 2</td>
+              <td>20%</td>
+              <td>70%</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>Sender 3</td>
+              <td>47%</td>
+              <td>20%</td>
+              <td>37%</td>
+            </tr>
+            <tr>
+              <td>Musik ?</td>
+              <td>xx%</td>
+              <td>xx%</td>
+              <td>xx%</td>
+            </tr>
+
+</tbody></table>
+</div>
+</div>
 	
 	<script type="text/javascript">
 		(()=>{
@@ -135,9 +535,11 @@
 			const playersRadio= document.querySelectorAll('#radio-audio audio');
 			const btns = document.querySelectorAll('.button');
 			const click = document.getElementById('click');
+			const fragebogen = document.getElementById('fragebogen');
+			const questions = document.querySelectorAll('.q');
+			const navBtns = document.querySelectorAll('.buttons button')
 			let unmuted = false;
 			let playing = false;
-			let i = btns.length;
 
 			const channelInfo = [
 				{"name": "SRF"},
@@ -145,6 +547,41 @@
 				{"name": "DRS"},
 				{"name": "RaBe"}
 			]
+
+
+
+			function naviBtns(e){
+				let active = document.querySelector('.q.active');
+				let prevE = active.previousElementSibling;
+				let nextE = active.nextElementSibling;
+				//console.log(active);
+				switch(e.id){
+					case 'next':
+						if(!nextE.nextElementSibling || nextE.nextElementSibling.id == 'buttons'){
+							document.getElementById('next').hidden = true;
+							document.getElementById('submit').hidden = false;
+						};
+						document.getElementById('prev').hidden = false;						
+						active.classList.remove('active');
+						nextE.classList.add('active');
+					break;
+					case 'prev':
+						if(!prevE.previousElementSibling){
+							document.getElementById('prev').hidden = true;
+						};
+						if(nextE.id == 'buttons'){
+							document.getElementById('submit').hidden = true;
+						}
+						document.getElementById('next').hidden = false;
+						active.classList.remove('active');
+						prevE.classList.add('active');
+					break;
+					case 'submit':
+						document.getElementById('auswertung_inhalt').classList.add('active');
+					break;
+				}
+				
+			}
 
 			function setTime(){
 				let timeNow = Date.now();
@@ -167,7 +604,8 @@
 			}
 
 			function questionnaire(){
-				console.log('FRAGEN');
+				fragebogen.hidden = false;
+				fragebogen.classList.add('active');
 			}
 
 			function playClick(){
@@ -177,6 +615,7 @@
 			}
 
 			function playAll(){
+				questionnaire()
 				let i = playersRadio.length;
 				while(i--){
 					playersRadio[i].play();
@@ -188,7 +627,7 @@
 			// Init Stuff
 			setTime();
 			let timeInterval = setInterval(setTime, 1000);
-
+			let i = btns.length;
 			while(i--){
 				btns[i].addEventListener('click',(e)=>{
 
@@ -211,6 +650,13 @@
 					sender.textContent = channelInfo[channel].name;
 
 				})
+			}
+			let j = navBtns.length;
+			while(j--){
+				navBtns[j].addEventListener('click',(e)=>{
+					naviBtns(e.target);
+
+				});
 			}
 		})();
 	</script>
